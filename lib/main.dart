@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return StreamBuilder<int>(
         stream: _bloc.counter,
         initialData: 0,
-        builder: (context, snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
           return Scaffold(
             appBar: AppBar(
               title: Text(widget.title),
@@ -73,11 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           );
         });
+  }
 
-    @override
-    void dispose() {
-      super.dispose();
-      _bloc.dispose();
-    }
+  @override
+  void dispose() {
+    super.dispose();
+    _bloc.dispose();
   }
 }
